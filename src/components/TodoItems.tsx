@@ -11,9 +11,11 @@ const TodoItems = ({
   onDeleteClick: (id: string) => void;
   onCompletedClick: (id: string) => void;
 }): JSX.Element => {
+  if (items.length === 0) {
+    return <></>;
+  }
   return (
     <div>
-      {/* <!--TODO This section should be hidden by default and shown when there are todos --> */}
       <section className="main">
         <input id="toggle-all" className="toggle-all" type="checkbox" />
         <label htmlFor="toggle-all">Mark all as complete</label>
