@@ -20,14 +20,11 @@ const App = (): JSX.Element => {
     }
   ]);
 
-function App() {
   return (
     <div className="App">
       <section className="todoapp">
         <Header />
-        <TodoItems
-          items={items}
-        />
+        <TodoItems items={items} />
         <Footer />
       </section>
       <Info />
