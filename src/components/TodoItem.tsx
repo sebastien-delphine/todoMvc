@@ -25,7 +25,7 @@ const TodoItem = ({
         <label>{label}</label>
         <button className="destroy" onClick={() => onDeleteClick(id)}></button>
       </div>
-      <input className="edit" value="Create a TodoMVC template" />
+      <input className="edit" value={label} />
     </div>
   );
 };

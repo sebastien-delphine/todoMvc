@@ -39,8 +39,23 @@ const App = (): JSX.Element => {
   const onAddTodoPress = (todo: string): void => {
     const itemsUpdated = [
       ...items,
-      { id: uuidv4(), label: todo, isCompleted: false }
+      { id: uuidv4(), label: todo, isCompleted: false, isEditing: false }
     ];
+    setItems(itemsUpdated);
+  };
+
+  const onDoubleClick = (id: string): void => {
+    const itemsUpdated = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, isEditing: true };
+      }
+      return item;
+    });
+    setItems(itemsUpdated);
+  };
+
+  const onBlur = (): void => {
+    const itemsUpdated = items.map((item) => ({ ...item, isEditing: false }));
     setItems(itemsUpdated);
   };
 
@@ -52,6 +67,8 @@ const App = (): JSX.Element => {
           items={items}
           onDeleteClick={onDeleteClick}
           onCompletedClick={onCompletedClick}
+          onDoubleClick={onDoubleClick}
+          onBlur={onBlur}
         />
         <Footer />
       </section>
