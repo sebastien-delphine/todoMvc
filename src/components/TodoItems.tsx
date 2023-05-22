@@ -19,7 +19,7 @@ const TodoItems = ({
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {/*
-              <!--TODO List items should get the class `editing` when editing and `completed` when marked as completed -->
+              <!--TODO List items should get the class `editing` when editing -->
             */}
           {items.map((item) => (
             <li
