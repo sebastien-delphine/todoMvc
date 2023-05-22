@@ -1,5 +1,5 @@
 interface Item {
-  id: number;
+  id: string;
   label: string;
   isCompleted: boolean;
 }

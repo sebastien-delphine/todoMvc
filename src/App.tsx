@@ -9,22 +9,28 @@ import type { Item } from './components/types';
 const App = (): JSX.Element => {
   const [items, setItems] = useState<Item[]>([
     {
-      id: 1,
+      id: uuidv4(),
       label: 'Taste JavaScript',
       isCompleted: true
     },
     {
-      id: 2,
+      id: uuidv4(),
       label: 'Buy a unicorn',
       isCompleted: false
     }
   ]);
 
+  const onAddTodoPress = (todo: string): void => {
+    const itemsUpdated = [
+      ...items,
+      { id: uuidv4(), label: todo, isCompleted: false }
+    ];
+    setItems(itemsUpdated);
+  };
   return (
     <div className="App">
       <section className="todoapp">
-        <Header />
-        <TodoItems items={items} />
+        <Header onAddTodoPress={onAddTodoPress} />
         <Footer />
       </section>
       <Info />
