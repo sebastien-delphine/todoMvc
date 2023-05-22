@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Header } from './components/Header';
+import { TodoItems } from './components/TodoItems';
+import { Footer } from './components/Footer';
+import { Info } from './components/Info';
 import './App.css';
+import type { Item } from './components/types';
+
+const App = (): JSX.Element => {
+  const [items, setItems] = useState<Item[]>([
+    {
+      id: 1,
+      label: 'Taste JavaScript',
+      isCompleted: true
+    },
+    {
+      id: 2,
+      label: 'Buy a unicorn',
+      isCompleted: false
+    }
+  ]);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="todoapp">
+        <Header />
+        <TodoItems
+          items={items}
+        />
+        <Footer />
+      </section>
+      <Info />
     </div>
   );
-}
+};
 
 export default App;
