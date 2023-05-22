@@ -3,12 +3,15 @@ import type { Item } from './types';
 
 interface TodoItemProps extends Item {
   onDeleteClick: (id: string) => void;
+  onCompletedClick: (id: string) => void;
 }
+
 const TodoItem = ({
   label,
   isCompleted,
   id,
   onDeleteClick,
+  onCompletedClick
 }: TodoItemProps): JSX.Element => {
   return (
     <div>
@@ -17,6 +20,7 @@ const TodoItem = ({
           className="toggle"
           type="checkbox"
           checked={isCompleted}
+          onClick={() => onCompletedClick(id)}
         />
         <label>{label}</label>
         <button className="destroy" onClick={() => onDeleteClick(id)}></button>

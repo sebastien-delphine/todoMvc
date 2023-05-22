@@ -5,9 +5,11 @@ import type { Item } from './types';
 const TodoItems = ({
   items,
   onDeleteClick,
+  onCompletedClick
 }: {
   items: Item[];
   onDeleteClick: (id: string) => void;
+  onCompletedClick: (id: string) => void;
 }): JSX.Element => {
   return (
     <div>
@@ -28,6 +30,7 @@ const TodoItems = ({
                 label={item.label}
                 isCompleted={item.isCompleted}
                 onDeleteClick={onDeleteClick}
+                onCompletedClick={onCompletedClick}
               />
             </li>
           ))}

@@ -26,6 +26,16 @@ const App = (): JSX.Element => {
     setItems(itemsFiltered);
   };
 
+  const onCompletedClick = (id: string): void => {
+    const itemsUpdated = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, isCompleted: !item.isCompleted };
+      }
+      return item;
+    });
+    setItems(itemsUpdated);
+  };
+
   const onAddTodoPress = (todo: string): void => {
     const itemsUpdated = [
       ...items,
@@ -41,6 +51,7 @@ const App = (): JSX.Element => {
         <TodoItems
           items={items}
           onDeleteClick={onDeleteClick}
+          onCompletedClick={onCompletedClick}
         />
         <Footer />
       </section>
