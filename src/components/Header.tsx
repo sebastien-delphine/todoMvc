@@ -28,6 +28,7 @@ const Header = ({
         autoFocus
         onChange={(event) => handleChange(event.target.value)}
         onKeyDown={(event) => handleKeyDown(event)}
+        data-testid="input-add-todo-field"
       />
     </header>
   );

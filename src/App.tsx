@@ -27,6 +27,7 @@ const App = (): JSX.Element => {
     ];
     setItems(itemsUpdated);
   };
+
   return (
     <div className="App">
       <section className="todoapp">
