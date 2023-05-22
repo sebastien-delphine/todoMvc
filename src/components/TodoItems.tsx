@@ -4,8 +4,10 @@ import type { Item } from './types';
 
 const TodoItems = ({
   items,
+  onDeleteClick,
 }: {
   items: Item[];
+  onDeleteClick: (id: string) => void;
 }): JSX.Element => {
   return (
     <div>
@@ -25,6 +27,7 @@ const TodoItems = ({
                 id={item.id}
                 label={item.label}
                 isCompleted={item.isCompleted}
+                onDeleteClick={onDeleteClick}
               />
             </li>
           ))}

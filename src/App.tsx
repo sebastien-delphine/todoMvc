@@ -20,6 +20,11 @@ const App = (): JSX.Element => {
     }
   ]);
 
+  const onDeleteClick = (id: string): void => {
+    const itemsFiltered = items.filter((item) => item.id !== id);
+    setItems(itemsFiltered);
+  };
+
   const onAddTodoPress = (todo: string): void => {
     const itemsUpdated = [
       ...items,
@@ -32,6 +37,10 @@ const App = (): JSX.Element => {
     <div className="App">
       <section className="todoapp">
         <Header onAddTodoPress={onAddTodoPress} />
+        <TodoItems
+          items={items}
+          onDeleteClick={onDeleteClick}
+        />
         <Footer />
       </section>
       <Info />
